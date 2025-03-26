@@ -1,0 +1,47 @@
+<UserControl x:Class="TrafficViolationApp.Views.NotificationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:converters="clr-namespace:TrafficViolationApp.Converters">
+    <UserControl.Resources>
+        <converters:BoolToStringConverter x:Key="BoolToStringConverter"/>
+    </UserControl.Resources>
+    <Grid Margin="20">
+        <StackPanel>
+            <TextBlock Text="{Binding UnreadNotificationCount, StringFormat='Thông báo chưa đọc: {0}'}" 
+                       FontSize="16" FontWeight="Bold" Margin="0,0,0,10"/>
+            <TextBlock Text="Thông báo" FontSize="14" FontWeight="Bold" Margin="0,10,0,5"/>
+            <ListView ItemsSource="{Binding Notifications}" Margin="0,0,0,10" Height="300">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Nội dung" DisplayMemberBinding="{Binding Message}" Width="300"/>
+                        <GridViewColumn Header="Biển số" DisplayMemberBinding="{Binding PlateNumber}" Width="100"/>
+                        <GridViewColumn Header="Ngày gửi" DisplayMemberBinding="{Binding SentDate, StringFormat='{}{0:dd/MM/yyyy HH:mm}'}" Width="150"/>
+                        <GridViewColumn Header="Đã đọc" Width="80">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding IsRead, Converter={StaticResource BoolToStringConverter}, ConverterParameter=IsNotification}" HorizontalAlignment="Center"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Button Content="Đánh dấu đã đọc" Command="{Binding MarkAsReadCommand}" Margin="0,10,0,5" 
+                    Padding="10,5" Background="#3498db" Foreground="White" BorderThickness="0">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="4"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button Content="Quay lại" Command="{Binding BackCommand}" Margin="0,5,0,0" 
+                    Padding="10,5" Background="#7f8c8d" Foreground="White" BorderThickness="0">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="4"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

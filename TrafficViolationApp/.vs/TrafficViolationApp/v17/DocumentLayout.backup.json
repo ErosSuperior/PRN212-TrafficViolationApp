@@ -1,0 +1,111 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Admin\\Desktop\\New folder (2)\\PRN212-TrafficViolationApp\\TrafficViolationApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F68909E3-D968-43A2-A3EC-F9ADF46FB09C}|TrafficViolationApp\\TrafficViolationApp.csproj|c:\\users\\admin\\desktop\\new folder (2)\\prn212-trafficviolationapp\\trafficviolationapp\\trafficviolationapp\\viewmodels\\dashboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F68909E3-D968-43A2-A3EC-F9ADF46FB09C}|TrafficViolationApp\\TrafficViolationApp.csproj|solutionrelative:trafficviolationapp\\viewmodels\\dashboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F68909E3-D968-43A2-A3EC-F9ADF46FB09C}|TrafficViolationApp\\TrafficViolationApp.csproj|c:\\users\\admin\\desktop\\new folder (2)\\prn212-trafficviolationapp\\trafficviolationapp\\trafficviolationapp\\views\\dashboardview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F68909E3-D968-43A2-A3EC-F9ADF46FB09C}|TrafficViolationApp\\TrafficViolationApp.csproj|solutionrelative:trafficviolationapp\\views\\dashboardview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F68909E3-D968-43A2-A3EC-F9ADF46FB09C}|TrafficViolationApp\\TrafficViolationApp.csproj|c:\\users\\admin\\desktop\\new folder (2)\\prn212-trafficviolationapp\\trafficviolationapp\\trafficviolationapp\\viewmodels\\notificationviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F68909E3-D968-43A2-A3EC-F9ADF46FB09C}|TrafficViolationApp\\TrafficViolationApp.csproj|solutionrelative:trafficviolationapp\\viewmodels\\notificationviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F68909E3-D968-43A2-A3EC-F9ADF46FB09C}|TrafficViolationApp\\TrafficViolationApp.csproj|c:\\users\\admin\\desktop\\new folder (2)\\prn212-trafficviolationapp\\trafficviolationapp\\trafficviolationapp\\views\\notificationview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F68909E3-D968-43A2-A3EC-F9ADF46FB09C}|TrafficViolationApp\\TrafficViolationApp.csproj|solutionrelative:trafficviolationapp\\views\\notificationview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F68909E3-D968-43A2-A3EC-F9ADF46FB09C}|TrafficViolationApp\\TrafficViolationApp.csproj|c:\\users\\admin\\desktop\\new folder (2)\\prn212-trafficviolationapp\\trafficviolationapp\\trafficviolationapp\\viewmodels\\reportviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F68909E3-D968-43A2-A3EC-F9ADF46FB09C}|TrafficViolationApp\\TrafficViolationApp.csproj|solutionrelative:trafficviolationapp\\viewmodels\\reportviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DashboardViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\New folder (2)\\PRN212-TrafficViolationApp\\TrafficViolationApp\\TrafficViolationApp\\ViewModels\\DashboardViewModel.cs",
+              "RelativeDocumentMoniker": "TrafficViolationApp\\ViewModels\\DashboardViewModel.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\New folder (2)\\PRN212-TrafficViolationApp\\TrafficViolationApp\\TrafficViolationApp\\ViewModels\\DashboardViewModel.cs",
+              "RelativeToolTip": "TrafficViolationApp\\ViewModels\\DashboardViewModel.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAgwFIAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T04:42:16.054Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DashboardView.xaml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\New folder (2)\\PRN212-TrafficViolationApp\\TrafficViolationApp\\TrafficViolationApp\\Views\\DashboardView.xaml",
+              "RelativeDocumentMoniker": "TrafficViolationApp\\Views\\DashboardView.xaml",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\New folder (2)\\PRN212-TrafficViolationApp\\TrafficViolationApp\\TrafficViolationApp\\Views\\DashboardView.xaml",
+              "RelativeToolTip": "TrafficViolationApp\\Views\\DashboardView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-26T04:41:34.143Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NotificationViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\New folder (2)\\PRN212-TrafficViolationApp\\TrafficViolationApp\\TrafficViolationApp\\ViewModels\\NotificationViewModel.cs",
+              "RelativeDocumentMoniker": "TrafficViolationApp\\ViewModels\\NotificationViewModel.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\New folder (2)\\PRN212-TrafficViolationApp\\TrafficViolationApp\\TrafficViolationApp\\ViewModels\\NotificationViewModel.cs",
+              "RelativeToolTip": "TrafficViolationApp\\ViewModels\\NotificationViewModel.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAwBUAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T04:40:55.12Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "NotificationView.xaml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\New folder (2)\\PRN212-TrafficViolationApp\\TrafficViolationApp\\TrafficViolationApp\\Views\\NotificationView.xaml",
+              "RelativeDocumentMoniker": "TrafficViolationApp\\Views\\NotificationView.xaml",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\New folder (2)\\PRN212-TrafficViolationApp\\TrafficViolationApp\\TrafficViolationApp\\Views\\NotificationView.xaml",
+              "RelativeToolTip": "TrafficViolationApp\\Views\\NotificationView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-03-26T04:40:19.281Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ReportViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\New folder (2)\\PRN212-TrafficViolationApp\\TrafficViolationApp\\TrafficViolationApp\\ViewModels\\ReportViewModel.cs",
+              "RelativeDocumentMoniker": "TrafficViolationApp\\ViewModels\\ReportViewModel.cs",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\New folder (2)\\PRN212-TrafficViolationApp\\TrafficViolationApp\\TrafficViolationApp\\ViewModels\\ReportViewModel.cs",
+              "RelativeToolTip": "TrafficViolationApp\\ViewModels\\ReportViewModel.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAQwB0AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-26T04:38:03.664Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

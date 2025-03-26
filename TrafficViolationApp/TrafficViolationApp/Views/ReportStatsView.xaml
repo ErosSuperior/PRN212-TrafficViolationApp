@@ -1,0 +1,72 @@
+<UserControl x:Class="TrafficViolationApp.Views.ReportStatsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <UserControl.Resources>
+        <Style x:Key="TitleStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="0,0,0,15"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="Arial Unicode MS, Segoe UI, Arial"/>
+            <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
+        </Style>
+        <Style x:Key="StatTextStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Margin" Value="0,5,0,5"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="FontFamily" Value="Arial Unicode MS, Segoe UI, Arial"/>
+            <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
+            <Setter Property="LineHeight" Value="20"/>
+            <Setter Property="LineStackingStrategy" Value="BlockLineHeight"/>
+        </Style>
+    </UserControl.Resources>
+    
+    <Grid Background="White">
+        <Border CornerRadius="8" Margin="10" Padding="15">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                
+                <!-- Título -->
+                <TextBlock Grid.Row="0" Text="Thống kê vi phạm" Style="{StaticResource TitleStyle}"/>
+                
+                <!-- Contenido de estadísticas -->
+                <StackPanel Grid.Row="1" Margin="10">
+                    <Border Background="#F5F5F5" CornerRadius="5" Padding="15" Margin="0,5,0,10">
+                        <TextBlock x:Name="AreaStats" Text="{Binding ViolationCountByArea}" Style="{StaticResource StatTextStyle}"/>
+                    </Border>
+                    
+                    <Border Background="#F5F5F5" CornerRadius="5" Padding="15" Margin="0,5,0,10">
+                        <TextBlock x:Name="TypeStats" Text="{Binding ViolationCountByType}" Style="{StaticResource StatTextStyle}"/>
+                    </Border>
+                    
+                    <Border Background="#F5F5F5" CornerRadius="5" Padding="15" Margin="0,5,0,10">
+                        <TextBlock x:Name="StatusStats" Text="{Binding ReportStatusCount}" Style="{StaticResource StatTextStyle}"/>
+                    </Border>
+                </StackPanel>
+                
+                <!-- Botón de regreso -->
+                <Button Grid.Row="2" 
+                        Content="Quay lại" 
+                        Command="{Binding BackCommand}" 
+                        Margin="0,10,0,0" 
+                        Padding="15,8"
+                        HorizontalAlignment="Center"
+                        Background="#3498db"
+                        Foreground="White"
+                        FontFamily="Arial Unicode MS, Segoe UI"
+                        FontSize="14"
+                        BorderThickness="0">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="4"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

@@ -1,0 +1,74 @@
+<UserControl x:Class="TrafficViolationApp.Views.LoginView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid Margin="20">
+        <StackPanel>
+            <TextBlock Text="Email"/>
+            <TextBox Text="{Binding Email}"/>
+            <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                <RadioButton Content="Đăng nhập bằng mật khẩu" IsChecked="{Binding UsePassword, Mode=TwoWay}" Margin="0 0 10 0"/>
+                <RadioButton Content="Đăng nhập bằng OTP" IsChecked="{Binding UseOtp, Mode=TwoWay}"/>
+            </StackPanel>
+            <!-- Đăng nhập bằng mật khẩu -->
+            <TextBlock Text="Mật khẩu">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding UsePassword}" Value="False">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+            <PasswordBox x:Name="PasswordBox">
+                <PasswordBox.Style>
+                    <Style TargetType="PasswordBox">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding UsePassword}" Value="False">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </PasswordBox.Style>
+            </PasswordBox>
+            <!-- Đăng nhập bằng OTP -->
+            <Button Content="Gửi OTP" Command="{Binding SendOtpCommand}" Margin="0 10 0 0">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding UseOtp}" Value="False">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <TextBlock Text="Nhập OTP">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding UseOtp}" Value="False">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+            <TextBox Text="{Binding Otp}">
+                <TextBox.Style>
+                    <Style TargetType="TextBox">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding UseOtp}" Value="False">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
+            <Button Content="Đăng nhập" Command="{Binding LoginCommand}" CommandParameter="{Binding ElementName=PasswordBox}" Margin="0 10 0 0"/>
+            <Button Content="Đăng ký" Command="{Binding RegisterCommand}" Margin="0 10 0 0"/>
+            <Button Content="Quên mật khẩu" Command="{Binding ForgotPasswordCommand}" Margin="0 10 0 0"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

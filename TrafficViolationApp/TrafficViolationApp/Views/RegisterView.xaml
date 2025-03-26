@@ -1,0 +1,28 @@
+<UserControl x:Class="TrafficViolationApp.Views.RegisterView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid Margin="20">
+        <StackPanel>
+            <TextBlock Text="Họ và tên"/>
+            <TextBox Text="{Binding FullName}"/>
+            <TextBlock Text="Email"/>
+            <TextBox Text="{Binding Email}"/>
+            <TextBlock Text="Mật khẩu"/>
+            <PasswordBox x:Name="PasswordBox"/>
+            <TextBlock Text="Số điện thoại"/>
+            <TextBox Text="{Binding Phone}"/>
+            <TextBlock Text="Địa chỉ"/>
+            <TextBox Text="{Binding Address}"/>
+            <!-- Eliminado ComboBox de selección de rol -->
+            <Button Content="Đăng ký" Margin="0 10 0 0">
+                <Button.Command>
+                    <Binding Path="SubmitRegisterCommand"/>
+                </Button.Command>
+                <Button.CommandParameter>
+                    <Binding ElementName="PasswordBox"/>
+                </Button.CommandParameter>
+            </Button>
+            <Button Content="Quay lại đăng nhập" Command="{Binding BackToLoginCommand}" Margin="0 10 0 0"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
