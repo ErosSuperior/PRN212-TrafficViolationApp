@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="TrafficViolationApp.Views.AddVehicleView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid Margin="20">
+        <StackPanel>
+            <!-- Form thêm xe -->
+            <TextBlock Text="Thêm xe mới" FontWeight="Bold" Margin="0 0 0 10"/>
+            <TextBlock Text="Biển số xe"/>
+            <TextBox Text="{Binding PlateNumber}"/>
+            <TextBlock Text="ID chủ xe"/>
+            <TextBox Text="{Binding OwnerId}"/>
+            <TextBlock Text="Hãng xe"/>
+            <TextBox Text="{Binding Brand}"/>
+            <TextBlock Text="Mẫu xe"/>
+            <TextBox Text="{Binding Model}"/>
+            <TextBlock Text="Năm sản xuất"/>
+            <TextBox Text="{Binding ManufactureYear}"/>
+            <Button Content="Thêm xe" Command="{Binding SubmitVehicleCommand}" Margin="0 10 0 0"/>
+
+            <!-- Danh sách xe -->
+            <TextBlock Text="Danh sách xe" FontWeight="Bold" Margin="0 20 0 10"/>
+            <TextBlock Text="Tìm kiếm (biển số, hãng, mẫu)"/>
+            <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 10"/>
+            <ListView ItemsSource="{Binding FilteredVehicles}" SelectedItem="{Binding SelectedVehicle}" Height="200">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Biển số" DisplayMemberBinding="{Binding PlateNumber}"/>
+                        <GridViewColumn Header="Chủ xe (ID)" DisplayMemberBinding="{Binding OwnerId}"/>
+                        <GridViewColumn Header="Hãng xe" DisplayMemberBinding="{Binding Brand}"/>
+                        <GridViewColumn Header="Mẫu xe" DisplayMemberBinding="{Binding Model}"/>
+                        <GridViewColumn Header="Năm sản xuất" DisplayMemberBinding="{Binding ManufactureYear}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                <Button Content="Xóa xe" Command="{Binding DeleteVehicleCommand}" Margin="0 0 10 0"/>
+                <!-- Nút xóa xe -->
+                <Button Content="Quay lại" Command="{Binding BackCommand}"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

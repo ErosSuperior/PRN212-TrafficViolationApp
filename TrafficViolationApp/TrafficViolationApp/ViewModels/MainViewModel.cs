@@ -6,7 +6,7 @@ namespace TrafficViolationApp.ViewModels
     public partial class MainViewModel : ObservableObject
     {
         [ObservableProperty] private object currentView;
-
+        public Action OnLogout { get; set; }
         public MainViewModel()
         {
             CurrentView = new LoginView { DataContext = new LoginViewModel(this) };

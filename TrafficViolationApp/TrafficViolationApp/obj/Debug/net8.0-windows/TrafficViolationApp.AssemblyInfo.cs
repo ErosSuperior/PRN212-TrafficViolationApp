@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TrafficViolationApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c9803a306775640c1075fb15460d150dfcdee6e7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e509dc21c422a53c3b68f99fd624f1527f3321df")]
 [assembly: System.Reflection.AssemblyProductAttribute("TrafficViolationApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TrafficViolationApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

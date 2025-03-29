@@ -12,6 +12,8 @@ namespace TrafficViolationApp.ViewModels
     {
         [ObservableProperty] private ObservableCollection<Report> reports = new();
         [ObservableProperty] private Report? selectedReport;
+        [ObservableProperty] private string searchText = string.Empty;
+        [ObservableProperty] private ObservableCollection<Report> filteredReports = new();
 
         private readonly TrafficViolationDbContext _context;
         private readonly int _currentUserId;
@@ -28,6 +30,22 @@ namespace TrafficViolationApp.ViewModels
         private void LoadReports()
         {
             Reports = new ObservableCollection<Report>(_context.Reports.Where(r => r.Status == "Pending"));
+            UpdateFilteredReports();
+        }
+
+        private void UpdateFilteredReports()
+        {
+            var filtered = Reports.Where(r => 
+                r.PlateNumber.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
+                r.ViolationType.Contains(SearchText, StringComparison.OrdinalIgnoreCase) ||
+                r.Status.Contains(SearchText, StringComparison.OrdinalIgnoreCase)
+            );
+            FilteredReports = new ObservableCollection<Report>(filtered);
+        }
+
+        partial void OnSearchTextChanged(string value)
+        {
+            UpdateFilteredReports();
         }
 
         [RelayCommand]
@@ -35,13 +53,21 @@ namespace TrafficViolationApp.ViewModels
         {
             if (SelectedReport != null && SelectedReport.Status == "Pending")
             {
+                // Kiểm tra xem xe có tồn tại không
+                var vehicle = _context.Vehicles.FirstOrDefault(v => v.PlateNumber == SelectedReport.PlateNumber);
+                if (vehicle == null)
+                {
+                    MessageBox.Show("Không tìm thấy xe với biển số này trong hệ thống!");
+                    return;
+                }
+
                 SelectedReport.Status = "Approved";
                 SelectedReport.ProcessedBy = _currentUserId;
                 var violation = new Violation
                 {
                     ReportId = SelectedReport.ReportId,
                     PlateNumber = SelectedReport.PlateNumber,
-                    ViolatorId = _context.Vehicles.First(v => v.PlateNumber == SelectedReport.PlateNumber).OwnerId,
+                    ViolatorId = vehicle.OwnerId,
                     FineAmount = 500000,
                     FineDate = DateTime.Now
                 };
@@ -87,7 +113,6 @@ namespace TrafficViolationApp.ViewModels
         }
 
         [RelayCommand]
-
         private void ViewStats()
         {
             _mainViewModel.NavigateTo(new ReportStatsView { DataContext = new ReportStatsViewModel(_mainViewModel, _currentUserId) });
@@ -96,6 +121,32 @@ namespace TrafficViolationApp.ViewModels
         private void ViewNotifications()
         {
             _mainViewModel.NavigateTo(new NotificationView { DataContext = new NotificationViewModel(_currentUserId, _mainViewModel) });
+        }
+        [RelayCommand]
+        private void AddVehicle()
+        {
+            _mainViewModel.NavigateTo(new AddVehicleView { DataContext = new AddVehicleViewModel(_currentUserId, _mainViewModel) });
+        }
+
+        [RelayCommand]
+        private void ViewUsers()
+        {
+            _mainViewModel.NavigateTo(new UserListView { DataContext = new UserListViewModel(_currentUserId, _mainViewModel) });
+        }
+        [RelayCommand]
+        private void ViewMyVehicles()
+        {
+            _mainViewModel.NavigateTo(new MyVehiclesView { DataContext = new MyVehiclesViewModel(_currentUserId, _mainViewModel) });
+        }
+
+        [RelayCommand]
+        private void Logout()
+        {
+            if (MessageBox.Show("Bạn có chắc muốn đăng xuất?", "Xác nhận", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                _mainViewModel.OnLogout?.Invoke();
+                _mainViewModel.NavigateTo(new LoginView { DataContext = new LoginViewModel(_mainViewModel) });
+            }
         }
     }
 }

@@ -1,5 +1,6 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using TrafficViolationApp.Models;
@@ -7,7 +8,7 @@ using TrafficViolationApp.Views;
 
 namespace TrafficViolationApp.ViewModels
 {
-    public partial class NotificationViewModel : ObservableObject
+    public partial class NotificationViewModel : ObservableObject, IDisposable
     {
         [ObservableProperty] private ObservableCollection<Notification> notifications = new();
         [ObservableProperty] private int unreadNotificationCount;
@@ -16,49 +17,96 @@ namespace TrafficViolationApp.ViewModels
         private readonly int _currentUserId;
         private readonly MainViewModel _mainViewModel;
         private readonly string _userRole;
+        private bool _disposed = false;
 
         public NotificationViewModel(int userId, MainViewModel mainViewModel)
         {
             _context = new TrafficViolationDbContext();
             _currentUserId = userId;
             _mainViewModel = mainViewModel;
-            _userRole = _context.Users.FirstOrDefault(u => u.UserId == userId)?.Role ?? "Citizen";
+            
+            var user = _context.Users.FirstOrDefault(u => u.UserId == userId);
+            _userRole = user?.Role ?? "Citizen";
+            
             LoadNotifications();
         }
 
         private void LoadNotifications()
         {
-            Notifications = new ObservableCollection<Notification>(_context.Notifications.Where(n => n.UserId == _currentUserId));
-            UpdateUnreadCount();
+            try
+            {
+                var userNotifications = _context.Notifications?.Where(n => n.UserId == _currentUserId).ToList();
+                Notifications = new ObservableCollection<Notification>(userNotifications ?? new List<Notification>());
+                UpdateUnreadCount();
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show($"Không thể tải thông báo: {ex.Message}");
+                Notifications = new ObservableCollection<Notification>();
+                UnreadNotificationCount = 0;
+            }
         }
 
         private void UpdateUnreadCount()
         {
-            UnreadNotificationCount = Notifications.Count(n => n.IsRead != true);
+            UnreadNotificationCount = Notifications?.Count(n => n.IsRead != true) ?? 0;
         }
 
         [RelayCommand]
         private void MarkAsRead()
         {
-            foreach (var notification in Notifications.Where(n => n.IsRead != true))
+            try
             {
-                notification.IsRead = true;
+                foreach (var notification in Notifications.Where(n => n.IsRead != true))
+                {
+                    notification.IsRead = true;
+                }
+                
+                _context.SaveChanges();
+                UpdateUnreadCount();
             }
-            
-            _context.SaveChanges();
-            UpdateUnreadCount();
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show($"Không thể đánh dấu đã đọc: {ex.Message}");
+            }
         }
 
         [RelayCommand]
         private void Back()
         {
-            if (_userRole == "TrafficPolice")
+            try
             {
-                _mainViewModel.NavigateTo(new DashboardView { DataContext = new DashboardViewModel(_currentUserId, _mainViewModel) });
+                if (_userRole == "TrafficPolice")
+                {
+                    _mainViewModel.NavigateTo(new DashboardView { DataContext = new DashboardViewModel(_currentUserId, _mainViewModel) });
+                }
+                else
+                {
+                    _mainViewModel.NavigateTo(new ReportView { DataContext = new ReportViewModel(_currentUserId, _mainViewModel) });
+                }
             }
-            else
+            catch (Exception ex)
             {
-                _mainViewModel.NavigateTo(new ReportView { DataContext = new ReportViewModel(_currentUserId, _mainViewModel) });
+                System.Windows.MessageBox.Show($"Có lỗi xảy ra: {ex.Message}");
+            }
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!_disposed)
+            {
+                if (disposing)
+                {
+                    _context?.Dispose();
+                }
+                
+                _disposed = true;
             }
         }
     }

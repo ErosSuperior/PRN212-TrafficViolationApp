@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Views\AddVehicleView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\DashboardView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -14,6 +17,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\LoginView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\MyVehiclesView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\NotificationView.xaml.cs">
@@ -28,12 +34,18 @@
     <Compile Update="Views\ReportView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\UserListView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\ViolationView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\AddVehicleView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\DashboardView.xaml">
@@ -43,6 +55,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\LoginView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MyVehiclesView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\NotificationView.xaml">
@@ -55,6 +70,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\ReportView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UserListView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\ViolationView.xaml">

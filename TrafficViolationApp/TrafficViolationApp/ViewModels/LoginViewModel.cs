@@ -28,7 +28,7 @@ namespace TrafficViolationApp.ViewModels
         {
             _context = new TrafficViolationDbContext();
             _mainViewModel = mainViewModel;
-
+            _mainViewModel.OnLogout = () => _generatedOtp = null;
             // Khởi tạo IConfiguration
             _configuration = new ConfigurationBuilder()
                 .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)

@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\Admin\Desktop\New folder (2)\PRN212-TrafficViolationApp\TrafficViolationApp\TrafficViolationApp\App.xaml
-9-2058623877
+12645443178
 
-29591609225
+35408344632
 248-758239108
-MainWindow.xaml;Views\DashboardView.xaml;Views\ForgotPasswordView.xaml;Views\LoginView.xaml;Views\NotificationView.xaml;Views\RegisterView.xaml;Views\ReportStatsView.xaml;Views\ReportView.xaml;Views\ViolationView.xaml;
+MainWindow.xaml;Views\AddVehicleView.xaml;Views\DashboardView.xaml;Views\ForgotPasswordView.xaml;Views\LoginView.xaml;Views\MyVehiclesView.xaml;Views\NotificationView.xaml;Views\RegisterView.xaml;Views\ReportStatsView.xaml;Views\ReportView.xaml;Views\UserListView.xaml;Views\ViolationView.xaml;
 
 False
 
